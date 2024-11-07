@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://lv2l8txwgr0h"]
+
+[ext_resource type="PackedScene" uid="uid://2pph4jfmbh5x" path="res://Scenes/Rockymap.tscn" id="1_de4e7"]
+[ext_resource type="PackedScene" uid="uid://cxqli6jye5nd" path="res://Scenes/mage.tscn" id="1_n1n62"]
+[ext_resource type="PackedScene" uid="uid://b057msdyrl6v8" path="res://Scenes/lava.tscn" id="3_6f7lr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rcnsu"]
+sky_top_color = Color(0.999907, 0.414735, 0.36451, 1)
+sky_horizon_color = Color(0.996374, 0.401618, 0.33334, 1)
+ground_bottom_color = Color(0.694118, 0, 0.0156863, 1)
+ground_horizon_color = Color(0.93664, 0.523543, 0.435034, 1)
+
+[sub_resource type="Sky" id="Sky_q0u2f"]
+sky_material = SubResource("ProceduralSkyMaterial_rcnsu")
+
+[sub_resource type="Environment" id="Environment_3gikh"]
+background_mode = 2
+sky = SubResource("Sky_q0u2f")
+
+[node name="Level1" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.683172, 0.730258, 0, -0.730258, 0.683172, 0, 4.83888, 3.82209)
+shadow_enabled = true
+
+[node name="Mage" parent="." instance=ExtResource("1_n1n62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 3, 61)
+
+[node name="Floor" type="Node3D" parent="."]
+
+[node name="RockyMap" parent="Floor" instance=ExtResource("1_de4e7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
+
+[node name="Lava" parent="Floor" instance=ExtResource("3_6f7lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94415, -1.09064, 127.066)
+
+[node name="Lava3" parent="Floor" instance=ExtResource("3_6f7lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.944, -1.09064, 127.066)
+
+[node name="Lava4" parent="Floor" instance=ExtResource("3_6f7lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.944, -1.09064, -0.934158)
+
+[node name="Lava5" parent="Floor" instance=ExtResource("3_6f7lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.944, -1.09064, -127.934)
+
+[node name="Lava6" parent="Floor" instance=ExtResource("3_6f7lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94415, -1.09064, -127.934)
+
+[node name="Lava7" parent="Floor" instance=ExtResource("3_6f7lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.056, -1.09064, -127.934)
+
+[node name="Lava8" parent="Floor" instance=ExtResource("3_6f7lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.056, -1.09064, 1.06584)
+
+[node name="Lava2" parent="Floor" instance=ExtResource("3_6f7lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -127.056, -1.09064, 127.066)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3gikh")

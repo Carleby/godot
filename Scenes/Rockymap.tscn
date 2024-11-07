@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://2pph4jfmbh5x"]
+
+[ext_resource type="PackedScene" uid="uid://ceucivff5wb2e" path="res://Assets/Map/floor_dirt_large_rocky.gltf" id="1_72wc6"]
+
+[node name="RockyMap" type="Node3D"]
+
+[node name="floor_dirt_large_rocky2" parent="." instance=ExtResource("1_72wc6")]
+transform = Transform3D(32, 0, 0, 0, 32, 0, 0, 0, 32, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor_dirt_large_rocky2"]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)

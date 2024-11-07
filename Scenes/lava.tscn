@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b057msdyrl6v8"]
+
+[ext_resource type="Texture2D" uid="uid://bviv5se221oyk" path="res://Assets/textures/CaveMagma.png" id="1_rj0n2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8jt2y"]
+albedo_texture = ExtResource("1_rj0n2")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_nlpqg"]
+size = Vector3(130, 2, 130)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lfg40"]
+size = Vector3(130, 2, 130)
+
+[node name="Lava" type="StaticBody3D"]
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_8jt2y")
+mesh = SubResource("BoxMesh_nlpqg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_lfg40")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7ri3apbgmkaf"]
+
+[ext_resource type="Texture2D" uid="uid://bviv5se221oyk" path="res://Assets/textures/CaveMagma.png" id="1_1u7se"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1mxr4"]
+albedo_texture = ExtResource("1_1u7se")
+subsurf_scatter_strength = 1.0
+refraction_scale = 1.0
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="SphereMesh" id="SphereMesh_omtet"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pc5nt"]
+radius = 0.1
+
+[node name="Fireball" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+material_override = SubResource("StandardMaterial3D_1mxr4")
+mesh = SubResource("SphereMesh_omtet")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_pc5nt")
